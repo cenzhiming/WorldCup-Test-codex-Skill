@@ -6,7 +6,7 @@ license: MIT
 
 # WorldCup Intelligence Skill
 
-本地修订版本：1.1.3
+本地修订版本：1.2.0
 
 ## 1. Skill 定位
 
@@ -75,6 +75,7 @@ Step 1 → Step 2 → Step 3 → Step 4 → Step 5 → Step 6 → Step 7
 ### Step 3：收集或请求必要输入
 
 - 确认比赛双方、赛事阶段、比赛日期
+- **确认开球时间并同时标注当地时间与北京时间**，避免"今晚/明天"歧义（东道主横跨多时区，见 [`references/2026_format.md`](./references/2026_format.md) §五）
 - 如用户未提供关键数据 → 主动请求或联网获取
 - 如无法获取 → 标注"信息不足"
 
@@ -341,6 +342,9 @@ Agent：[加载 Skill] → [识别：内容生成] → [确认素材] → [选�
 |------|------|
 | [`SOURCE_POLICY.md`](./SOURCE_POLICY.md) | 数据来源优先级、核验规则、冲突处理 |
 | [`WORKFLOW.md`](./WORKFLOW.md) | 五大工作流的完整执行步骤 |
-| [`PROBABILITY_METHOD.md`](./PROBABILITY_METHOD.md) | 概率估算方法和 FIFA 排名规则 |
-| [`templates/`](./templates/) | 各类输出的标准模板 |
+| [`PROBABILITY_METHOD.md`](./PROBABILITY_METHOD.md) | 概率估算方法、FIFA 排名规则、市场赔率校准 |
+| [`templates/`](./templates/) | 各类输出的标准模板（含预测校准复盘模板） |
 | [`prompts/`](./prompts/) | 角色模式的详细定义 |
+| [`scripts/`](./scripts/) | 可执行计算脚本：`poisson_scoreline.py`（比分分布）、`devig.py`（赔率去水）、`group_sim.py`（出线推演）、`brier.py`（准确度评分） |
+| [`references/2026_format.md`](./references/2026_format.md) | 2026 赛制、最佳第三名、城市气候/海拔、时区 |
+| [`evals/`](./evals/) | 回归测试集（test prompts + 断言） |
