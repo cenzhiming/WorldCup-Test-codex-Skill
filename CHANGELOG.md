@@ -4,6 +4,31 @@
 
 ---
 
+## v1.2.0
+
+**主题**：可执行脚本 + 2026 赛制知识库 + 时区规则 + 测试集与准确度闭环
+
+### 新增
+
+- `scripts/` 可执行计算脚本（把手算固化为可复现工具）：
+  - `poisson_scoreline.py` — 独立泊松比分分布（比分矩阵 + 1X2 + 大小球 + BTTS）
+  - `devig.py` — 赔率去水（隐含概率 / 抽水 overround / 去水概率）
+  - `group_sim.py` — 小组出线情景枚举（3^N，含 FIFA 同分排序简化）
+  - `brier.py` — 多分类 Brier 预测准确度评分
+- `references/2026_format.md` — 48 队 12 组赛制、最佳第三名跨组判定、东道主城市气候/海拔、时区与"今晚"歧义对照
+- `templates/预测校准复盘模板.md` — 预测 vs 赛果对照、误差归因、校准动作
+- `evals/evals.json` — 回归测试集（5 条 test prompt + 22 条断言，含"诱导投注"负向用例）
+- `SKILL.md` §4 Step 3 / `WORKFLOW.md` 赛前流程：新增**时区规则**（开球时间须同时标注当地 + 北京时间）
+
+### 同步与修复
+
+- 🐞 修复 `README.md` 错误的 clone 地址（指向了不存在的 kingslayer-ops 仓库 → 改为真实仓库）
+- `README.md` 同步 v1.1.1–v1.2.0：能力模块、仓库结构、约束规则（补"同期赛果""赔率校准"）、输出示例（补"前序赛果回顾"模块，11→12 节）、Roadmap
+- `README.md` 修正"全生命周期含赛中跟踪"的夸大表述（实时直播不在能力范围内）
+- `SKILL.md` / `PROBABILITY_METHOD.md` 引用表挂接 scripts/references/evals
+
+---
+
 ## v1.1.3
 
 **主题**：新增「市场赔率校准法」规则（含合规护栏）
