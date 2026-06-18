@@ -6,7 +6,7 @@ license: MIT
 
 # WorldCup Intelligence Skill
 
-本地修订版本：1.2.0
+本地修订版本：1.2.1
 
 ## 1. Skill 定位
 
@@ -214,7 +214,7 @@ Step 1 → Step 2 → Step 3 → Step 4 → Step 5 → Step 6 → Step 7
 
 **为什么有用**：市场赔率聚合了大量信息与资金，是检验模型的一面"镜子"。把模型概率与市场去水后的隐含概率并排比对，能快速暴露模型在哪些事件上偏离市场——这通常说明模型该校准，比闭门估值更可靠。
 
-**标准做法**（完整步骤见 [`PROBABILITY_METHOD.md`](./PROBABILITY_METHOD.md) §4.5）：
+**标准做法**（完整步骤见 [`PROBABILITY_METHOD.md`](./PROBABILITY_METHOD.md) §4.5；多盘/多时点对照见 [`templates/盘口对照与校准模板.md`](./templates/盘口对照与校准模板.md)）：
 
 1. **去水换算**：隐含概率 = 1 / 欧赔；同一市场各选项隐含概率求和 = 抽水(overround)；各项除以该和 → 去水隐含概率。先去水再比才是同口径。
 2. **交叉验证**：去水隐含概率与模型概率逐项对比（Δ = 去水 − 模型），识别系统性偏离。
@@ -343,7 +343,7 @@ Agent：[加载 Skill] → [识别：内容生成] → [确认素材] → [选�
 | [`SOURCE_POLICY.md`](./SOURCE_POLICY.md) | 数据来源优先级、核验规则、冲突处理 |
 | [`WORKFLOW.md`](./WORKFLOW.md) | 五大工作流的完整执行步骤 |
 | [`PROBABILITY_METHOD.md`](./PROBABILITY_METHOD.md) | 概率估算方法、FIFA 排名规则、市场赔率校准 |
-| [`templates/`](./templates/) | 各类输出的标准模板（含预测校准复盘模板） |
+| [`templates/`](./templates/) | 各类输出的标准模板（含预测校准复盘、盘口对照与校准模板） |
 | [`prompts/`](./prompts/) | 角色模式的详细定义 |
 | [`scripts/`](./scripts/) | 可执行计算脚本：`poisson_scoreline.py`（比分分布）、`devig.py`（赔率去水）、`group_sim.py`（出线推演）、`brier.py`（准确度评分） |
 | [`references/2026_format.md`](./references/2026_format.md) | 2026 赛制、最佳第三名、城市气候/海拔、时区 |
