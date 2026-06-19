@@ -6,7 +6,7 @@ license: MIT
 
 # WorldCup Intelligence Skill
 
-本地修订版本：1.2.1
+本地修订版本：1.2.2
 
 ## 1. Skill 定位
 
